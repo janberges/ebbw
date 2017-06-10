@@ -5,6 +5,10 @@ import numpy as np
 kB = 8.61733e-5
 epsilon = 1e-10
 
+def Tc(l, mu, wE, D, A=0.94, B=1.11, C=0.74, **ignore):
+    mu /= 1 + mu * np.log(D / wE)
+    return wE / (kB * A) * np.exp(-B * (1 + l) / (l - C * l * mu - mu))
+
 def power_method(matrix):
    N = len(matrix)
 
@@ -39,7 +43,7 @@ def residue(x, N=10):
       return 2 / np.pi * sum((-1) ** n / x ** (2 * n + 1) / (2 * n + 1) ** 2
          for n in range(N)) + np.log(x)
 
-def eigenvalue(T, l, mu, wE, cutoff, D, rescale=True):
+def eigenvalue(T, l, mu, wE, D, cutoff=15, rescale=True, **ignore):
    T *= kB
 
    nE = wE / (2 * np.pi * T)
@@ -72,8 +76,8 @@ def eigenvalue(T, l, mu, wE, cutoff, D, rescale=True):
 
    return power_method(np.arctan2(D, W) / W * J)
 
-def critical(variable='T', epsilon=epsilon, **more):
-   parameters = dict(T=10.0, l=1.0, mu=0.1, wE=0.02, cutoff=15, D=1.0)
+def critical(variable='T', epsilon=1e-3, **more):
+   parameters = dict(T=10.0, l=1.0, mu=0.1, wE=0.02, D=1.0)
    parameters.update(more)
 
    exponent = dict(T=2.3, l=-1.3, mu=4.0, wE=-2.3, D=-22.0)[variable]
