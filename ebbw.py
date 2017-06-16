@@ -18,17 +18,17 @@ def power_method(matrix):
 
    matrix.flat[::N + 1] += shift
 
-   I = power_method
+   i = power_method
 
-   if not hasattr(I, 'vector') or len(I.vector) != N:
-      I.vector = np.random.rand(N)
+   if not hasattr(i, 'vector') or len(i.vector) != N:
+      i.vector = np.random.rand(N)
 
    x0 = np.nan
 
    while True:
-      I.vector = matrix.dot(I.vector)
-      x = np.sqrt(I.vector.dot(I.vector))
-      I.vector /= x
+      i.vector = matrix.dot(i.vector)
+      x = np.sqrt(i.vector.dot(i.vector))
+      i.vector /= x
 
       if abs(x - x0) < epsilon:
          return x - shift
