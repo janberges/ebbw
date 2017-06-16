@@ -91,4 +91,4 @@ def critical(variable='T', epsilon=1e-3, **more):
       parameters[variable] = x
 
 if __name__ == '__main__':
-   print critical(epsilon=1e-3)
+   print critical()
