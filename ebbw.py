@@ -5,8 +5,8 @@ import numpy as np
 kB = 8.61733e-5
 epsilon = 1e-10
 
-def Tc(l, u, w, D, A=0.94, B=1.11, C=0.74, **ignore):
-    u /= 1 + u * np.log(D / w)
+def Tc(l, u, w, E, A=0.94, B=1.11, C=0.74, **ignore):
+    u /= 1 + u * np.log(E / w)
     return w / (kB * A) * np.exp(-B * (1 + l) / (l - C * l * u - u))
 
 def power_method(matrix):
@@ -43,7 +43,7 @@ def residue(x, N=10):
       return 2 / np.pi * sum((-1) ** n / x ** (2 * n + 1) / (2 * n + 1) ** 2
          for n in range(N)) + np.log(x)
 
-def eigenvalue(T, l, u, w, D, cutoff=15, rescale=True, **ignore):
+def eigenvalue(T, l, u, w, E, cutoff=15, rescale=True, **ignore):
    T *= kB
 
    w /= 2 * np.pi * T
@@ -53,7 +53,7 @@ def eigenvalue(T, l, u, w, D, cutoff=15, rescale=True, **ignore):
    l /= 1 + (np.arange(2 * N) / w) ** 2
 
    if rescale:
-      u /= 1 + u * residue(D / ((2 * N + 1) * np.pi * T))
+      u /= 1 + u * residue(E / ((2 * N + 1) * np.pi * T))
 
    I = np.empty((N, N))
    J = np.empty((N, N))
@@ -66,20 +66,20 @@ def eigenvalue(T, l, u, w, D, cutoff=15, rescale=True, **ignore):
    W0 = w = (2 * np.arange(N) + 1) * np.pi * T
 
    while True:
-      W = w + np.arctan2(D, W0).dot(I)
+      W = w + np.arctan2(E, W0).dot(I)
 
       if np.all(abs(W - W0) < epsilon):
          break
 
       W0 = W
 
-   return power_method(np.arctan2(D, W) / W * J)
+   return power_method(np.arctan2(E, W) / W * J)
 
 def critical(variable='T', epsilon=1e-3, **more):
-   parameters = dict(T=10.0, l=1.0, u=0.1, w=0.02, D=1.0)
+   parameters = dict(T=10.0, l=1.0, u=0.1, w=0.02, E=1.0)
    parameters.update(more)
 
-   exponent = dict(T=2.3, l=-1.3, u=4.0, w=-2.3, D=-22.0)[variable]
+   exponent = dict(T=2.3, l=-1.3, u=4.0, w=-2.3, E=-22.0)[variable]
 
    while True:
       x = parameters[variable] * eigenvalue(**parameters) ** exponent
