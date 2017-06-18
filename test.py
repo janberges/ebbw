@@ -18,8 +18,10 @@ variables = [
 
 figure = plt.figure()
 
+defaults = dict(l=1.0, u=0.1, w=0.02, E=1.0)
+
 for n, (key, x, label) in enumerate(variables, 1):
-   parameters = dict(l=1.0, u=0.1, w=0.02, E=1.0)
+   parameters = defaults.copy()
 
    for i, parameters[key] in enumerate(x):
       print '%s = %g' % (key, parameters[key])
@@ -37,6 +39,10 @@ for n, (key, x, label) in enumerate(variables, 1):
    plt.xlabel(label)
    plt.ylabel(r'$T_{\mathrm{c}} / K$')
 
+plt.suptitle(r'(The default parameters are $\lambda = %(l)g$, $\mu = %(u)g$, '
+   r'$\omega_{\mathrm{E}} = %(w)g\,\mathrm{eV}$ and $E = %(E)g\,\mathrm{eV}$)'
+   % defaults, y=0)
+
 plt.tight_layout()
 
-figure.savefig('test.pdf')
+figure.savefig('test.pdf', bbox_inches='tight')
