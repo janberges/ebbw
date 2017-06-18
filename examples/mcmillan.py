@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+import sys
+sys.path.append('..')
+
 import ebbw
 import numpy as np
 import matplotlib.pyplot as plt
@@ -45,4 +48,4 @@ plt.suptitle(r'(The default parameters are $\lambda = %(l)g$, $\mu = %(u)g$, '
 
 plt.tight_layout()
 
-figure.savefig('test.pdf', bbox_inches='tight')
+figure.savefig('mcmillan.pdf', bbox_inches='tight')
