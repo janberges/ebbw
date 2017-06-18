@@ -64,7 +64,7 @@ for parameters['u'] in 0.1, 0.0:
          plt.ylabel(r'$T_{\mathrm{c}} / \mathrm{K}$')
 
 plt.suptitle(r'(For the dotted lines, $\mu$ has not been rescaled. Throughout, '
-   '$\lambda = %(l)g$ and $\omega_{\mathrm{E}} = %(w)g\,\mathrm{eV}$)'
+   r'$\lambda = %(l)g$ and $\omega_{\mathrm{E}} = %(w)g\,\mathrm{eV}$)'
    % parameters, y=0)
 
 plt.tight_layout()
