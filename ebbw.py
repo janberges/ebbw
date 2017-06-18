@@ -63,17 +63,21 @@ def eigenvalue(T, l, u, w, E, cutoff=15, rescale=True, **ignore):
          I[n, m] = 2 * T * (l[abs(n - m)] - l[n + m + 1])
          J[n, m] = 2 * T * (l[abs(n - m)] + l[n + m + 1] - 2 * u)
 
-   W0 = w = (2 * np.arange(N) + 1) * np.pi * T
+   w = (2 * np.arange(N) + 1) * np.pi * T
+
+   i = eigenvalue
+
+   if not hasattr(i, 'w') or len(i.w) != N:
+      i.w = w
 
    while True:
-      W = w + np.arctan2(E, W0).dot(I)
+      w0 = i.w
+      i.w = w + np.arctan2(E, i.w).dot(I)
 
-      if np.all(abs(W - W0) < epsilon):
+      if np.all(abs(i.w - w0) < epsilon):
          break
 
-      W0 = W
-
-   return power_method(np.arctan2(E, W) / W * J)
+   return power_method(np.arctan2(E, i.w) / i.w * J)
 
 def critical(variable='T', epsilon=1e-3, **more):
    parameters = dict(T=10.0, l=1.0, u=0.1, w=0.02, E=1.0)
