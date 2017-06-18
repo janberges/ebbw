@@ -55,7 +55,8 @@ for parameters['u'] in 0.1, 0.0:
          plt.title(r'$\mu = %g$' % parameters['u'])
 
          if not parameters['u']:
-            plt.legend(title=clabel, loc='best', frameon=False)
+            plt.legend(title=clabel, loc='best', frameon=False,
+               prop={'size': 'medium'})
 
          plt.xscale('log', basex=vbase)
 

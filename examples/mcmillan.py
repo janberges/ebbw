@@ -40,7 +40,7 @@ for position, (key, x, label) in enumerate(variables, 221):
    plt.xlabel(label)
    plt.ylabel(r'$T_{\mathrm{c}} / \mathrm{K}$')
 
-plt.legend(loc='best', frameon=False)
+plt.legend(loc='lower right', frameon=False, prop={'size': 'medium'})
 
 plt.suptitle(r'(The default parameters are $\lambda = %(l)g$, $\mu = %(u)g$, '
    r'$\omega_{\mathrm{E}} = %(w)g\,\mathrm{eV}$ and $E = %(E)g\,\mathrm{eV}$)'
