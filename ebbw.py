@@ -9,7 +9,7 @@ def Tc(l, u, w, E, A=0.94, B=1.11, C=0.74, **ignore):
     u /= 1 + u * np.log(E / w)
     return w / (kB * A) * np.exp(-B * (1 + l) / (l - C * l * u - u))
 
-def power_method(matrix):
+def eigenvalue(matrix):
    N = len(matrix)
 
    shift = min(
@@ -18,7 +18,7 @@ def power_method(matrix):
 
    matrix.flat[::N + 1] += shift
 
-   i = power_method
+   i = eigenvalue
 
    if not hasattr(i, 'vector') or len(i.vector) != N:
       i.vector = np.random.rand(N)
@@ -35,15 +35,15 @@ def power_method(matrix):
 
       x0 = x
 
-def residue(x, N=10):
+def residue(x, terms=10):
    if x < 1:
       return 2 / np.pi * sum((-1) ** n * x ** (2 * n + 1) / (2 * n + 1) ** 2
-         for n in range(N))
+         for n in range(terms))
    else:
       return 2 / np.pi * sum((-1) ** n / x ** (2 * n + 1) / (2 * n + 1) ** 2
-         for n in range(N)) + np.log(x)
+         for n in range(terms)) + np.log(x)
 
-def eigenvalue(T, l, u, w, E, cutoff=15, rescale=True, **ignore):
+def Eliashberg(T, l, u, w, E, cutoff=15, rescale=True, **ignore):
    T *= kB
 
    w /= 2 * np.pi * T
@@ -65,7 +65,7 @@ def eigenvalue(T, l, u, w, E, cutoff=15, rescale=True, **ignore):
 
    w = (2 * np.arange(N) + 1) * np.pi * T
 
-   i = eigenvalue
+   i = Eliashberg
 
    if not hasattr(i, 'w') or len(i.w) != N:
       i.w = w
@@ -77,7 +77,7 @@ def eigenvalue(T, l, u, w, E, cutoff=15, rescale=True, **ignore):
       if np.all(abs(i.w - w0) < epsilon):
          break
 
-   return power_method(np.arctan2(E, i.w) / i.w * J)
+   return eigenvalue(np.arctan2(E, i.w) / i.w * J)
 
 def critical(variable='T', epsilon=1e-3, **more):
    parameters = dict(T=10.0, l=1.0, u=0.1, w=0.02, E=1.0)
@@ -86,7 +86,7 @@ def critical(variable='T', epsilon=1e-3, **more):
    exponent = dict(T=2.3, l=-1.3, u=4.0, w=-2.3, E=-22.0)[variable]
 
    while True:
-      x = parameters[variable] * eigenvalue(**parameters) ** exponent
+      x = parameters[variable] * Eliashberg(**parameters) ** exponent
       exponent *= 0.99
 
       if abs(x - parameters[variable]) < epsilon:
