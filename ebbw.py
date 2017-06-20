@@ -37,10 +37,10 @@ def eigenvalue(matrix):
 
 def residue(x, terms=10):
    if x < 1:
-      return 2 / np.pi * sum((-1) ** n * x ** (2 * n + 1) / (2 * n + 1) ** 2
+      return 2 / np.pi * sum((-1) ** n * x ** +(2 * n + 1) / (2 * n + 1) ** 2
          for n in range(terms))
    else:
-      return 2 / np.pi * sum((-1) ** n / x ** (2 * n + 1) / (2 * n + 1) ** 2
+      return 2 / np.pi * sum((-1) ** n * x ** -(2 * n + 1) / (2 * n + 1) ** 2
          for n in range(terms)) + np.log(x)
 
 def Eliashberg(T, l, u, w, E, cutoff=15, rescale=True, **ignore):
@@ -52,7 +52,7 @@ def Eliashberg(T, l, u, w, E, cutoff=15, rescale=True, **ignore):
 
    l /= 1 + (np.arange(2 * N) / w) ** 2
 
-   if rescale:
+   if u and rescale:
       u /= 1 + u * residue(E / ((2 * N + 1) * np.pi * T))
 
    I = np.empty((N, N))
