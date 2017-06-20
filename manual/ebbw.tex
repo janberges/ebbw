@@ -61,23 +61,27 @@
       \end{aligned}
    \end{align*}
    %
-   This program solves them for critical points
-   $( T, \lambda, \mu, \omega \sub E, E )$ of the superconducting state.
+   $\omega_n = (2 n + 1) \pi T$ and $\nu_n = 2 n \pi T$ are fermionic and
+   bosonic Matsubara frequencies, $\tilde \omega_n$ are renormalized fermionic
+   frequencies and $\phi_n$ is proportional to the infinitesimal superconducting
+   order parameter at the critical point $(T, \lambda, \mu, \omega \sub E, E)$.
+   Further quantities are explained below.
 
    \headline{Parameters}
 
    \begin{center}
       \begin{tabular}{r c c l}
          \verb|T| & $T$ & K & temperature \\
-         \verb|l| & $\lambda$ & & electron-phonon coupling \\
-         \verb|u| & $\mu$ & & Coulomb repulsion \\
+         \verb|l| & $\lambda$ & 1 & electron-phonon coupling \\
+         \verb|u| & $\mu$ & 1 & Coulomb repulsion \\
          \verb|w| & $\omega \sub E$ & eV & Einstein phonon frequency \\
          \verb|E| & $E$ & eV & half the electronic bandwidth \\
          [2mm]
          \verb|cutoff| & $\omega_N$ & $\omega_E$ & cutoff frequency \\
          \verb|rescale| & & & if false, use $\mu$ in place of $\mu^*_N$ \\
          \verb|epsilon| & & any & self-consistency threshold for final result \\
-         \verb|terms| & & & number of terms in series for energy integral
+         \verb|terms| & & 1 & number of terms in series expansion of
+         $1 / \mu^*_N - 1 / \mu$
       \end{tabular}
    \end{center}
 
@@ -89,9 +93,9 @@
          \verb| T=10, l=1, u=0.1, w=0.02, E=1, ...)|
 
       solves the Eliashberg equations by varying the parameter indicated by
-      \verb|variable|, which may be \verb|T|, \verb|l|, \verb|u|, \verb|w| or
-      \verb|E|, leaving the others fixed. Any given value for this parameter is
-      used as initial guess. The critical value is returned.
+      \verb|variable|, which may be $T$, $\lambda$, $\mu$, $\omega \sub E$ or
+      $E$, leaving the others fixed. Any given value for this parameter is used
+      as initial guess. The critical value is returned.
 
       \item[def] \verb|Tc(l, u, w, E, A=0.94, B=1.11, C=0.74, ...)|
 
@@ -104,7 +108,8 @@
          \frac \mu {\mu^*} = 1 + \mu \log \Big[ \frac E {\omega \sub E} \Big],
       \end{equation*}
       %
-      where the default values have been adjusted to an Einstein spectrum.
+      where default values for $A$, $B$ and $C$ have been adjusted to an
+      Einstein phonon spectrum.
 
       \item[def] \verb|Eliashberg(T, l, u, w, E, cutoff=15, rescale=True, ...)|
 
@@ -119,6 +124,6 @@
 
       \item[def] \verb|eigenvalue(matrix)|
 
-      returns the maximum eigenvalue of a matrix.
+      returns the maximum eigenvalue of the given matrix.
    \end{itemize}
 \end{document}
