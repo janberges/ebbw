@@ -79,9 +79,7 @@
          [2mm]
          \verb|cutoff| & $\omega_N$ & $\omega_E$ & cutoff frequency \\
          \verb|rescale| & & & if false, use $\mu$ in place of $\mu^*_N$ \\
-         \verb|epsilon| & & any & self-consistency threshold for final result \\
-         \verb|terms| & & 1 & number of terms in series expansion of
-         $1 / \mu^*_N - 1 / \mu$
+         \verb|epsilon| & & any & self-consistency threshold for final result
       \end{tabular}
    \end{center}
 
@@ -118,10 +116,9 @@
       which is less than, equal to or greater than unity in the normal, critical
       or superconducting state, respectively.
 
-      \item[def] \verb|residue(x, terms=10)|
+      \item[def] \verb|residue(x)|
 
-      returns $1 / \mu^*_N - 1 / \mu$ as a function of $E / \omega_N$,
-      approximated via a series expansion.
+      returns $1 / \mu^*_N - 1 / \mu$ as a function of $E / \omega_N$.
 
       \item[def] \verb|eigenvalue(matrix)|
 
