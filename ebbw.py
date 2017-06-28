@@ -36,14 +36,20 @@ def eigenvalue(matrix):
       x0 = x
 
 def residue(x):
-   x, y = (x, 0) if x < 1 else (1 / x, np.log(x))
+   base, series = (1 / x, np.log(x)) if x > 1 else (x, 0)
 
-   for n in xrange(1000):
-      dy = 2 / np.pi * (-1) ** n * x ** (2 * n + 1) / (2 * n + 1) ** 2
-      y += dy
+   n = 1
+   pre = 2 / np.pi
 
-      if abs(dy) < epsilon:
-         return y
+   while True:
+      term = base ** n / n ** 2
+      series += pre * term
+
+      if term < epsilon:
+         return series
+
+      n += 2
+      pre *= -1
 
 def Eliashberg(T, l, u, w, E, cutoff=15, rescale=True, **ignore):
    T *= kB
