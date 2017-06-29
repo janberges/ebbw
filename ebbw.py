@@ -51,12 +51,12 @@ def residue(x):
       n += 2
       pre *= -1
 
-def Eliashberg(T, l, u, w, E, cutoff=15, rescale=True, **ignore):
+def Eliashberg(T, l, u, w, E, W, rescale=True, **ignore):
    T *= kB
 
    w /= 2 * np.pi * T
 
-   N = int(np.ceil(cutoff * w - 0.5))
+   N = int(np.ceil(W * w - 0.5))
 
    l /= 1 + (np.arange(2 * N) / w) ** 2
 
@@ -87,10 +87,7 @@ def Eliashberg(T, l, u, w, E, cutoff=15, rescale=True, **ignore):
 
    return eigenvalue(np.arctan2(E, i.w) / i.w * J)
 
-def critical(variable='T', epsilon=1e-3, **more):
-   parameters = dict(T=10.0, l=1.0, u=0.1, w=0.02, E=1.0)
-   parameters.update(more)
-
+def critical(variable='T', epsilon=1e-3, **parameters):
    exponent = dict(T=2.3, l=-1.3, u=4.0, w=-2.3, E=-22.0)[variable]
 
    while True:
@@ -103,4 +100,4 @@ def critical(variable='T', epsilon=1e-3, **more):
       parameters[variable] = x
 
 if __name__ == '__main__':
-   print critical()
+   print critical(T=10.0, l=1.0, u=0.1, w=0.02, E=1.0, W=15.0)

@@ -12,11 +12,11 @@ N = 1001
 Tc = np.empty(N)
 
 variables = [
-   ('E',     10, np.linspace(-1, 1, N), r'$E / \mathrm{eV}$'),
-   ('cutoff', 2, np.linspace( 3, 5, N), r'$\omega_N / \omega_{\mathrm{E}}$'),
+   ('E', 10, np.linspace(-1, 1, N), r'$E / \mathrm{eV}$'),
+   ('W',  2, np.linspace( 3, 5, N), r'$\omega_N / \omega_{\mathrm{E}}$'),
    ]
 
-parameters = dict(l=1.0, u=None, w=0.02, E=None, cutoff=None, rescale=None)
+parameters = dict(T=10.0, l=1.0, u=None, w=0.02, E=None, W=None, rescale=None)
 
 figure = plt.figure()
 

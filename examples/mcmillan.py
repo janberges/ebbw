@@ -19,7 +19,7 @@ variables = [
    ('E', np.linspace(1e-1, 1e+1, N), r'$E / \mathrm{eV}$'),
    ]
 
-defaults = dict(l=1.0, u=0.1, w=0.02, E=1.0)
+defaults = dict(T=10.0, l=1.0, u=0.1, w=0.02, E=1.0, W=15.0)
 
 figure = plt.figure()
 
@@ -43,8 +43,8 @@ for position, (key, x, label) in enumerate(variables, 221):
 plt.legend(loc='lower right', frameon=False, prop={'size': 'medium'})
 
 plt.suptitle(r'(The default parameters are $\lambda = %(l)g$, $\mu = %(u)g$, '
-   r'$\omega_{\mathrm{E}} = %(w)g\,\mathrm{eV}$ and $E = %(E)g\,\mathrm{eV}$)'
-   % defaults, y=0)
+   r'$\omega_{\mathrm{E}} = %(w)g\,\mathrm{eV}$, $E = %(E)g\,\mathrm{eV}$ and '
+   r'$\omega_N = %(W)g\,\omega_{\mathrm{E}}$)' % defaults, y=0)
 
 plt.tight_layout()
 
