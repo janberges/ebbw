@@ -100,4 +100,4 @@ def critical(variable='T', epsilon=1e-3, **parameters):
       parameters[variable] = x
 
 if __name__ == '__main__':
-   print critical(T=10.0, l=1.0, u=0.1, w=0.02, E=1.0, W=15.0)
+   print(critical(T=10.0, l=1.0, u=0.1, w=0.02, E=1.0, W=15.0))
