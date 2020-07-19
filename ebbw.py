@@ -5,7 +5,7 @@ import numpy as np
 kB = 8.61733e-5
 epsilon = 1e-10
 
-def Tc(l, u, w, E, A=0.94, B=1.11, C=0.74, **ignore):
+def Tc(l, u, w, E, A=1.20, B=1.04, C=0.62, **ignore):
     u /= 1 + u * np.log(E / w)
     return w / (kB * A) * np.exp(-B * (1 + l) / (l - C * l * u - u))
 
