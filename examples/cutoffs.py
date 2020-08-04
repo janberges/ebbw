@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 sys.path.append('..')
@@ -28,22 +28,22 @@ for parameters['u'] in 0.1, 0.0:
       ckey, cbase, cx, clabel = variables[1 - v]
 
       vx = vbase ** vx
-      cx = cbase ** cx[::N / 2]
+      cx = cbase ** cx[::N // 2]
 
       plt.subplot(position)
       position += 1
 
       for color, parameters[ckey] in zip('rgb' if v else 'cmy', cx):
-         print '%s = %g' % (ckey, parameters[ckey])
+         print('%s = %g' % (ckey, parameters[ckey]))
 
          for parameters['rescale'], options in [
                (True,  dict(linestyle='-', label='%g' % parameters[ckey])),
                (False, dict(linestyle=':')),
                ]:
-            print 'rescale = %s' % parameters['rescale']
+            print('rescale = %s' % parameters['rescale'])
 
             for i, parameters[vkey] in enumerate(vx):
-               print '%s = %g' % (vkey, parameters[vkey])
+               print('%s = %g' % (vkey, parameters[vkey]))
 
                Tc[i] = parameters['T'] = ebbw.critical(**parameters)
 

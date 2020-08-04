@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 sys.path.append('..')
@@ -27,7 +27,7 @@ for position, (key, x, label) in enumerate(variables, 221):
    parameters = defaults.copy()
 
    for i, parameters[key] in enumerate(x):
-      print '%s = %g' % (key, parameters[key])
+      print('%s = %g' % (key, parameters[key]))
 
       TcEB[i] = parameters['T'] = ebbw.critical(**parameters)
       TcMM[i] = ebbw.Tc(**parameters)
