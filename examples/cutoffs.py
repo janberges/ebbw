@@ -7,7 +7,7 @@ import ebbw
 import numpy as np
 import matplotlib.pyplot as plt
 
-N = 1001
+N = 101
 
 Tc = np.empty(N)
 
@@ -55,18 +55,19 @@ for parameters['u'] in 0.1, 0.0:
          plt.title(r'$\mu = %g$' % parameters['u'])
 
          if not parameters['u']:
-            plt.legend(title=clabel, loc='best', frameon=False,
-               prop={'size': 'medium'})
+            plt.legend()
 
+         plt.autoscale(tight=True)
          plt.xscale('log', basex=vbase)
 
          plt.xlabel(vlabel)
          plt.ylabel(r'$T_{\mathrm{c}} / \mathrm{K}$')
 
-plt.suptitle(r'(For the dotted lines, $\mu$ has not been rescaled. Throughout, '
-   r'$\lambda = %(l)g$ and $\omega_{\mathrm{E}} = %(w)g\,\mathrm{eV}$)'
+plt.suptitle(
+   r'dotted lines w/o rescaling, '
+   r'$\lambda = %(l)g$, '
+   r'$\omega_{\mathrm{E}} = %(w)g\,\mathrm{eV}$'
    % parameters, y=0)
 
 plt.tight_layout()
-
 figure.savefig('cutoffs.pdf', bbox_inches='tight')
