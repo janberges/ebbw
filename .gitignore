@@ -2,6 +2,8 @@
 !.gitignore
 
 *.aux
+*.dat
+*.in
 *.log
 *.pdf
 *.pyc
