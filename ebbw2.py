@@ -95,9 +95,10 @@ def Eliashberg(T, l1, l2, u, w1, w2, E1, E2, W, rescale=True, **ignore):
 
    return eigenvalue((np.arctan2(E1, i.w) + np.arctan2(E2, i.w)) / i.w * J)
 
-def critical(variable='T', epsilon=1e-3, **parameters):
-   exponent = dict(T=2.3, l1=-1.3, l2=-1.3, u=4.0, w1=-2.3, w2=-2.3,
-      E1=-22.0, E2=-22.0)[variable]
+def critical(variable='T', epsilon=1e-3, exponent=None, **parameters):
+   if exponent is None:
+      exponent = dict(T=2.3, l1=-1.3, l2=-1.3, u=4.0, w1=-2.3, w2=-2.3,
+         E1=-22.0, E2=-22.0)[variable]
 
    while True:
       x = parameters[variable] * Eliashberg(**parameters) ** exponent
