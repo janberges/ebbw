@@ -15,9 +15,8 @@ def Tc(l1, l2, u, w1, w2, E1, E2, A=1.20, B=1.04, C=0.62, **ignore):
 def eigenvalue(matrix):
    N = len(matrix)
 
-   shift = min(
-      max(sum(abs(row)) for row in matrix),
-      max(sum(abs(col)) for col in matrix.T))
+   absolute = abs(matrix)
+   shift = min(absolute.sum(axis=0).max(), absolute.sum(axis=1).max())
 
    matrix.flat[::N + 1] += shift
 
@@ -74,10 +73,11 @@ def Eliashberg(T, l1, l2, u, w1, w2, E1, E2, W, rescale=True, **ignore):
    I = np.empty((N, N))
    J = np.empty((N, N))
 
+   l *= T
+   u *= 2 * T
    for n in range(N):
-      for m in range(N):
-         I[n, m] = T * (l[abs(n - m)] - l[n + m + 1])
-         J[n, m] = T * (l[abs(n - m)] + l[n + m + 1] - 2 * u)
+     I[n:, n] = I[n, n:] = l[:N - n] - l[2 * n + 1:N + n + 1]
+     J[n:, n] = J[n, n:] = l[:N - n] + l[2 * n + 1:N + n + 1] - u
 
    w = (2 * np.arange(N) + 1) * np.pi * T
 
