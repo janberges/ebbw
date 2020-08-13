@@ -53,14 +53,14 @@ def residue(x):
       n += 2
       pre *= -1
 
-def Eliashberg(T, l1, l2, u, w1, w2, E1, E2, W, rescale=True, **ignore):
+def Eliashberg(T, l1, l2, u, w1, w2, E1, E2, W, rescale=True, N=1e4, **ignore):
    T *= kB
 
    w1 /= 2 * np.pi * T
    w2 /= 2 * np.pi * T
 
    w = np.exp((l1 * np.log(w1) + l2 * np.log(w2)) / (l1 + l2))
-   N = int(np.ceil(W * w - 0.5))
+   N = int(min(N, np.ceil(W * w - 0.5)))
 
    l = (l1 / (1 + (np.arange(2 * N) / w1) ** 2)
       + l2 / (1 + (np.arange(2 * N) / w2) ** 2))
