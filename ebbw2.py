@@ -76,8 +76,8 @@ def Eliashberg(T, l1, l2, u, w1, w2, E1, E2, W, rescale=True, N=1e4, **ignore):
    l *= T
    u *= 2 * T
    for n in range(N):
-     I[n:, n] = I[n, n:] = l[:N - n] - l[2 * n + 1:N + n + 1]
-     J[n:, n] = J[n, n:] = l[:N - n] + l[2 * n + 1:N + n + 1] - u
+      I[n:, n] = I[n, n:] = l[:N - n] - l[2 * n + 1:N + n + 1]
+      J[n:, n] = J[n, n:] = l[:N - n] + l[2 * n + 1:N + n + 1] - u
 
    w = (2 * np.arange(N) + 1) * np.pi * T
 
