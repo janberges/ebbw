@@ -65,8 +65,8 @@ def Eliashberg(T, l, u, w, E, W, rescale=True, N=1e4, **ignore):
    I = np.empty((N, N))
    J = np.empty((N, N))
 
-   l *= T
-   u *= 2 * T
+   l *= 2 * T
+   u *= 4 * T
    for n in range(N):
      I[n:, n] = I[n, n:] = l[:N - n] - l[2 * n + 1:N + n + 1]
      J[n:, n] = J[n, n:] = l[:N - n] + l[2 * n + 1:N + n + 1] - u
