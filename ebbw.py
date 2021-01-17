@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# Copyright (C) 2021 Jan Berges
+# This program is free software under the terms of the GNU GPLv3 or later.
+
 import numpy as np
 
 kB = 8.61733e-5
