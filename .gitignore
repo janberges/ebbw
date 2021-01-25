@@ -3,6 +3,7 @@
 
 *.aux
 *.dat
+*.egg-info
 *.in
 *.log
 *.pdf
