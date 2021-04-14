@@ -7,5 +7,6 @@
 *.in
 *.log
 *.pdf
+*.png
 *.pyc
 *.synctex.gz

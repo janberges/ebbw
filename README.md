@@ -1,4 +1,4 @@
-# ebbw
+![ebbw logo](logo/logo.svg)
 
 Solve Eliashberg equations for finite bandwidths.
 
