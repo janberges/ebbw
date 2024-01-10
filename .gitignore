@@ -10,3 +10,4 @@
 *.png
 *.pyc
 *.synctex.gz
+dist
