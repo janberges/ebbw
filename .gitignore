@@ -11,3 +11,5 @@
 *.pyc
 *.synctex.gz
 dist
+
+!ebbw.png
