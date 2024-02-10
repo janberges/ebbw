@@ -2,7 +2,8 @@
 
 Solve finite-bandwidth Eliashberg equations.
 
-For further information typeset and read `manual/ebbw.tex`.
+For further information typeset `manual/ebbw.tex` or read it
+[here](https://janberges.github.io/ebbw/ebbw.pdf).
 
 ## Licence
 
