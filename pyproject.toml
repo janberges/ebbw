@@ -10,9 +10,8 @@ description = "Solve Eliashberg equations for finite bandwidths"
 readme = "README.md"
 urls = {Homepage = "https://bitbucket.org/berges/ebbw"}
 classifiers = [
-    "Programming Language :: Python",
     "License :: OSI Approved :: GNU General Public License (GPL)",
-    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python",
 ]
 requires-python = ">=2.7"
 
