@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ebbw"
-version = "2021.1"
+dynamic = ["version"]
 authors = [{name = "Jan Berges"}]
 description = "Solve Eliashberg equations for finite bandwidths"
 readme = "README.md"
@@ -16,4 +16,5 @@ classifiers = [
 requires-python = ">=2.7"
 
 [tool.setuptools]
+dynamic = {version = {attr = "ebbw.__version__"}}
 py-modules = ['ebbw', 'ebbw2']
