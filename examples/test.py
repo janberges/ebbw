@@ -17,7 +17,7 @@ w = 0.02
 E = 1.0
 W = 15.0
 
-Tc0 = 19.734507869 # ebbw.epsilon = 1e-30, critical(epislon=1e-16)
+Tc0 = 19.734507869 # ebbw.epsilon = 1e-30, critical(epsilon=1e-16)
 
 Tc1 = ebbw.critical(T=T0(), l=l, u=u, w=w, E=E, W=W)
 
