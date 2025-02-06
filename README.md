@@ -1,9 +1,7 @@
-![ebbw logo](logo/ebbw.svg)
-
-Solve finite-bandwidth Eliashberg equations.
+# Solve finite-bandwidth Eliashberg equations
 
 For further information typeset `manual/ebbw.tex` or read it
-[here](https://janberges.github.io/ebbw/ebbw.pdf).
+[here](https://janberges.github.io/ebbw).
 
 ## Licence
 
