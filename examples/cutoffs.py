@@ -58,7 +58,7 @@ for parameters['u'] in 0.1, 0.0:
             plt.legend()
 
          plt.autoscale(tight=True)
-         plt.xscale('log', basex=vbase)
+         plt.xscale('log', base=vbase)
 
          plt.xlabel(vlabel)
          plt.ylabel(r'$T_{\mathrm{c}} / \mathrm{K}$')
