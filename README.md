@@ -1,4 +1,6 @@
-# Solve finite-bandwidth Eliashberg equations
+# ebbw
+
+Solve finite-bandwidth Eliashberg equations.
 
 For further information typeset `manual/ebbw.tex` or read it
 [here](https://io.janberges.de/ebbw).
