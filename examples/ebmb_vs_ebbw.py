@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-import sys
-sys.path.append('..')
-
 import ebbw2
 import ebmb
 import matplotlib.pyplot as plt
