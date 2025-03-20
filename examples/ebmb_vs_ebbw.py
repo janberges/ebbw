@@ -7,7 +7,7 @@ import numpy as np
 
 e, dos = ebmb.box_dos('dos.in', bandwidth=8.0)
 
-shift = True
+shift = False
 
 l = 1.0
 w = 0.02
