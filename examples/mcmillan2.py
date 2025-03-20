@@ -11,10 +11,10 @@ TcMM = np.empty(N)
 
 variables = [
    ('l1', np.linspace(0.50, 2.50, N), r'$\lambda_1$'),
-   ('u',  np.linspace(0.00, 0.30, N), r'$\mu$'),
+   ('u', np.linspace(0.00, 0.30, N), r'$\mu$'),
    ('w1', np.linspace(0.01, 0.03, N), r'$\omega_1 / \mathrm{eV}$'),
    ('E1', np.linspace(0.10, 6.00, N), r'$E_1 / \mathrm{eV}$'),
-   ]
+]
 
 defaults = dict(T=10.0, l1=0.5, l2=0.5, u=0.1, w1=0.02, w2=0.02,
     E1=6.0, E2=6.0, W=15.0)

@@ -18,7 +18,8 @@ Tc0 = 19.734507869 # ebbw.epsilon = 1e-30, critical(epsilon=1e-16)
 
 Tc1 = ebbw.critical(T=T0(), l=l, u=u, w=w, E=E, W=W)
 
-Tc2 = ebbw2.critical(T=T0(), l1=l/2, l2=l/2, u=u, w1=w, w2=w, E1=E, E2=E, W=W)
+Tc2 = ebbw2.critical(T=T0(), l1=l / 2, l2=l / 2, u=u, w1=w, w2=w, E1=E, E2=E,
+    W=W)
 
 if abs(Tc0 - Tc1) > epsilon:
   print('ebbw does not yield expected result')

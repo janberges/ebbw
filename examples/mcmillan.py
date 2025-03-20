@@ -14,7 +14,7 @@ variables = [
    ('u', np.linspace(0.00, 0.30, N), r'$\mu$'),
    ('w', np.linspace(0.01, 0.03, N), r'$\omega_{\mathrm{E}} / \mathrm{eV}$'),
    ('E', np.linspace(0.10, 6.00, N), r'$E / \mathrm{eV}$'),
-   ]
+]
 
 defaults = dict(T=10.0, l=1.0, u=0.1, w=0.02, E=6.0, W=15.0)
 

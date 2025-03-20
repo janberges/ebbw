@@ -10,8 +10,8 @@ Tc = np.empty(N)
 
 variables = [
    ('E', 10, np.linspace(-1, 1, N), r'$E / \mathrm{eV}$'),
-   ('W',  2, np.linspace( 3, 5, N), r'$\omega_N / \omega_{\mathrm{E}}$'),
-   ]
+   ('W', 2, np.linspace(3, 5, N), r'$\omega_N / \omega_{\mathrm{E}}$'),
+]
 
 parameters = dict(T=10.0, l=1.0, u=None, w=0.02, E=None, W=None, rescale=None)
 
@@ -34,9 +34,9 @@ for parameters['u'] in 0.1, 0.0:
          print('%s = %g' % (ckey, parameters[ckey]))
 
          for parameters['rescale'], options in [
-               (True,  dict(linestyle='-', label='%g' % parameters[ckey])),
+               (True, dict(linestyle='-', label='%g' % parameters[ckey])),
                (False, dict(linestyle=':')),
-               ]:
+            ]:
             print('rescale = %s' % parameters['rescale'])
 
             for i, parameters[vkey] in enumerate(vx):

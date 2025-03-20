@@ -28,7 +28,9 @@ for n in range(10):
       r'$%s \mathrm{Im} \, \psi[(N + \frac{1}{2})(1 + \mathrm{i} x)]$'
       r'  for  $N = 1, \, 2, \, 4, \, 8, \, 16, \, \ldots$' % integral)
 
-plt.plot(x, list(map(ebbw.residue, x)), 'red', label=r'$%s \arctan(x)$' % integral)
+plt.plot(x, list(map(ebbw.residue, x)), 'red',
+    label=r'$%s \arctan(x)$' % integral)
+
 plt.plot(x[pos], np.log(x[pos]), 'blue', label=r'$\log(x)$')
 
 plt.legend(loc='upper left', frameon=False, prop={'size': 'medium'})
