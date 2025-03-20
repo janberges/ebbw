@@ -1,6 +1,6 @@
-.PHONY: clean html
+.PHONY: html examples clean
 
-html: ebbw.pdf
+html: ebbw.pdf examples
 	sphinx-build -M html . .
 
 ebbw.pdf: ebbw.tex ../logo/ebbw.pdf
@@ -9,6 +9,9 @@ ebbw.pdf: ebbw.tex ../logo/ebbw.pdf
 
 ../logo/ebbw.pdf: ../logo/ebbw.tex
 	$(MAKE) -C ../logo/ ebbw.pdf
+
+examples:
+	$(MAKE) -C ../examples/
 
 clean:
 	rm -rf doctrees html

@@ -44,4 +44,4 @@ plt.ylabel(r'$T_{\mathrm{c}}$ (K)')
 plt.legend()
 
 plt.autoscale(tight=True)
-figure.savefig('two_modes.pdf', bbox_inches='tight')
+figure.savefig('two_modes.png', bbox_inches='tight')

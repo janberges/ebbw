@@ -36,4 +36,4 @@ plt.xlabel('$%s$' % xlabel)
 
 plt.tight_layout()
 
-figure.savefig('residue.pdf', bbox_inches='tight')
+figure.savefig('residue.png', bbox_inches='tight')

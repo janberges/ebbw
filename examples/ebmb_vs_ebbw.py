@@ -58,4 +58,4 @@ plt.xlabel(r'$\mu$')
 plt.ylabel(r'$T_{\mathrm{c}}$ (K)')
 
 plt.autoscale(tight=True)
-figure.savefig('ebmb_vs_ebbw.pdf', bbox_inches='tight')
+figure.savefig('ebmb_vs_ebbw.png', bbox_inches='tight')

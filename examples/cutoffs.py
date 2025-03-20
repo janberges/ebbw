@@ -67,4 +67,4 @@ plt.suptitle(
    % parameters, y=0)
 
 plt.tight_layout()
-figure.savefig('cutoffs.pdf', bbox_inches='tight')
+figure.savefig('cutoffs.png', bbox_inches='tight')

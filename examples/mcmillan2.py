@@ -58,4 +58,4 @@ plt.suptitle(r'defaults: '
 
 plt.tight_layout()
 
-figure.savefig('mcmillan2.pdf', bbox_inches='tight')
+figure.savefig('mcmillan2.png', bbox_inches='tight')
