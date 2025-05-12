@@ -6,7 +6,8 @@ import numpy as np
 
 epsilon = 1e-2
 
-T0 = lambda: 1.0 + 100.0 * np.random.rand()
+def T0():
+    return 1.0 + 100.0 * np.random.rand()
 
 l = 1.0
 u = 0.1

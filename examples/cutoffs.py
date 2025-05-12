@@ -34,9 +34,9 @@ for parameters['u'] in 0.1, 0.0:
             print('%s = %g' % (ckey, parameters[ckey]))
 
             for parameters['rescale'], options in [
-                    (True, dict(linestyle='-', label='%g' % parameters[ckey])),
-                    (False, dict(linestyle=':')),
-                ]:
+                (True, dict(linestyle='-', label='%g' % parameters[ckey])),
+                (False, dict(linestyle=':')),
+            ]:
                 print('rescale = %s' % parameters['rescale'])
 
                 for i, parameters[vkey] in enumerate(vx):
