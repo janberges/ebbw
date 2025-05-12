@@ -22,10 +22,10 @@ Tc2 = ebbw2.critical(T=T0(), l1=l / 2, l2=l / 2, u=u, w1=w, w2=w, E1=E, E2=E,
     W=W)
 
 if abs(Tc0 - Tc1) > epsilon:
-  print('ebbw does not yield expected result')
+    print('ebbw does not yield expected result')
 
 elif abs(Tc1 - Tc2) > epsilon:
-  print('ebbw and ebbw2 disagree')
+    print('ebbw and ebbw2 disagree')
 
 else:
-  print('All tests passed')
+    print('All tests passed')

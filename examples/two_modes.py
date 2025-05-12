@@ -13,21 +13,21 @@ TcEB = np.empty((3, N))
 TcMM = np.empty((3, N))
 
 parameters = dict(T=20.0, u=0.0, l1=1.0, l2=0.0, w1=0.02, w2=0.08,
-   E1=3.6, E2=4.4, W=50.0)
+    E1=3.6, E2=4.4, W=50.0)
 
 TcEB[2] = ebbw2.critical(**parameters)
 TcMM[2] = ebbw2.Tc(**parameters)
 
 for i, parameters['l1'] in enumerate(l1):
-   print('l1 = %g' % parameters['l1'])
+    print('l1 = %g' % parameters['l1'])
 
-   for j, parameters['l2'] in enumerate(l2):
-      print('l2 = %g' % parameters['l2'])
+    for j, parameters['l2'] in enumerate(l2):
+        print('l2 = %g' % parameters['l2'])
 
-      TcEB[i, j] = parameters['T'] = ebbw2.critical(**parameters)
-      TcMM[i, j] = ebbw2.Tc(**parameters)
+        TcEB[i, j] = parameters['T'] = ebbw2.critical(**parameters)
+        TcMM[i, j] = ebbw2.Tc(**parameters)
 
-      print('Tc = %g K' % parameters['T'])
+        print('Tc = %g K' % parameters['T'])
 
 figure = plt.figure()
 
