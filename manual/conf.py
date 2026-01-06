@@ -3,7 +3,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 project = 'ebbw'
-copyright = '2017-2025 Jan Berges'
+copyright = '2017-2026 Jan Berges'
 author = 'Uni Bremen'
 
 extensions = [
